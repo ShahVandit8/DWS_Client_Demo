@@ -59,7 +59,7 @@ const Attendance = () => {
                     <div>
                         {
                             loading ?
-                                <></>
+                                <>Loding...</>
                                 :
                                 attendancedata.length > 0 ?
                                     attendancedata.filter(item => item.Student_id == userid).map(item2 => (
@@ -95,7 +95,7 @@ const Attendance = () => {
                                     ))
                                     :
                                     <div className="row p-0  m-0 mt-3" style={{ backgroundColor: 'rgba(255, 193, 7, 0.2)', borderRadius: '0' }}>
-                                        <div className="col-1 text-center">
+                                        <div className="col-md-1 col-2 text-center">
                                             <span style={{ fontSize: '35px', color: '#FFC107' }} className="bi bi-exclamation-circle-fill"></span>
                                         </div>
                                         <div className="col-9 d-flex align-items-center">

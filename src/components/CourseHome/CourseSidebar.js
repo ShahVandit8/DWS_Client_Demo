@@ -55,7 +55,7 @@ const CourseSidebar = () => {
         <div className="col-lg-2 col-12 card1 border-md-0 p-0">
             <div className="card-body p-0">
                 <div className="p-4">
-                    <img src={process.env.REACT_APP_SERVER_FILE + course.CoverImage} style={{ height: '6rem'}} className='d-block mx-auto' alt="" />
+                    <img src={process.env.REACT_APP_SERVER_FILE + course.CoverImage}  className='img-fluid d-block mx-auto' alt="" />
                     <h2 className="text-center mt-3" style={{fontSize: '22px'}}>{course.Name}</h2>
                     <h2 className="text-center mt-1" style={{fontSize: '12px', fontWeight: '400'}} >{course.Category}</h2>
                 </div>

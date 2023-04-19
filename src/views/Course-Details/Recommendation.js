@@ -12,11 +12,13 @@ const Recommendation = ({ Category, id }) => {
 
     useEffect(() => {
         getcourses();
+        checkEnrollment();
     }, [])
 
     const [loading, setLoading] = useState(false)
     const [available, setAvailable] = useState(false)
     const [courses, setCourses] = useState([])
+    const [course, setCourse] = useState([])
     const slider = useRef(null);
     const slider1 = useRef(null);
 
@@ -38,6 +40,12 @@ const Recommendation = ({ Category, id }) => {
             setAvailable(true)
         }
         setLoading(false)
+    }
+
+    const checkEnrollment = async () => {
+        const userDetails = sessionStorage.getItem('User');
+        const userdets = JSON.parse(userDetails)
+        setCourse(userdets.Courses)
     }
 
     function SampleNextArrow(props) {
@@ -165,42 +173,54 @@ const Recommendation = ({ Category, id }) => {
                                 <Slider ref={slider} {...settings}>
                                     {
                                         courses.filter((curitem) => curitem._id != id)
-                                        .map((item, index) => (
-                                            // <CourseGrid id={item._id} Title={item.Name} CoverPicture={process.env.REACT_APP_SERVER_FILE + item.CoverImage} Section={item.Modules.length} Duration={item.Duration} Rating={item.Rating} RatingOutOf={item.RatingOutOf} Price={item.SellingPrice} Level={item.Level} />
-                                            <div className='col-12 col-md-11 my-3 text-dark feture-tabs' style={{ color: 'inherit' }}>
-                                                <div className="card" style={{ borderRadius: 0 }}>
-                                                    <img src={process.env.REACT_APP_SERVER_FILE + item.CoverImage} className="card-img-top" style={{ borderRadius: 0 }} alt="..." />
-                                                    <div className="card-body shadow-hover" style={{ border: 'none' }}>
-                                                        <div className="row mt-3">
-                                                            <div className="col-12">
-                                                                <a href={'/course/' + item._id} className='title' style={{ fontSize: '23px', color: 'black' }}><strong>{item.Name}</strong></a>
+                                            .map((item, index) => (
+                                                // <CourseGrid id={item._id} Title={item.Name} CoverPicture={process.env.REACT_APP_SERVER_FILE + item.CoverImage} Section={item.Modules.length} Duration={item.Duration} Rating={item.Rating} RatingOutOf={item.RatingOutOf} Price={item.SellingPrice} Level={item.Level} />
+                                                <div className='col-12 col-md-11 my-3 text-dark feture-tabs' style={{ color: 'inherit' }}>
+                                                    <div className="card" style={{ borderRadius: 0 }}>
+                                                        <img src={process.env.REACT_APP_SERVER_FILE + item.CoverImage} className="card-img-top" style={{ borderRadius: 0 }} alt="..." />
+                                                        <div className="card-body shadow-hover" style={{ border: 'none' }}>
+                                                            <div className="row mt-3">
+                                                                <div className="col-12">
+                                                                    <a href={'/course/' + item._id} className='title' style={{ fontSize: '23px', color: 'black' }}><strong>{item.Name}</strong></a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="row mt-3">
-                                                            <div className="col-12">
-                                                                <p>{item.Modules.length} sections • {item.Duration}</p>
+                                                            <div className="row mt-3">
+                                                                <div className="col-12">
+                                                                    <p>{item.Modules.length} sections • {item.Duration}</p>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="d-flex flex-row mt-1">
-                                                            <Star rating={item.Rating} size="14px" />
-                                                            <span className='mx-2' style={{ color: "#F8B648", fontSize: '17px' }}>{item.Rating}</span>
-                                                            <span className='mt-1' style={{ fontSize: '11px' }}>({item.RatingOutOf})</span>
-                                                        </div>
+                                                            <div className="d-flex flex-row mt-1">
+                                                                <Star rating={item.Rating} size="14px" />
+                                                                <span className='mx-2' style={{ color: "#F8B648", fontSize: '17px' }}>{item.Rating}</span>
+                                                                <span className='mt-1' style={{ fontSize: '11px' }}>({item.RatingOutOf})</span>
+                                                            </div>
 
-                                                        <hr className='my-4' style={{ height: '1%' }} />
+                                                            <hr className='my-4' style={{ height: '1%' }} />
 
-                                                        <div className='row p-0'>
-                                                            <div className='col-6'>
-                                                                <span style={{ fontSize: '17px', fontWeight: '700', fontFamily: 'Nunito' }}>₹{item.SellingPrice}</span>
-                                                            </div>
-                                                            <div className='col-6 pr-3'>
-                                                                <Link className='float-right' to={"/enrollment/" + item._id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i> &nbsp; Enroll Now</Link>
+                                                            <div className='row p-0'>
+                                                                <div className='col-5'>
+                                                                    <span style={{ fontSize: '17px', fontWeight: '700', fontFamily: 'Nunito' }}>₹{item.SellingPrice}</span>
+                                                                </div>
+                                                                <div className='col-7'>
+                                                                    {
+                                                                        course.length ?
+                                                                            course.filter((item5) => item5.Course_id === item._id).length ?
+                                                                                <Link className='float-right' to={"/my-courses/enrolled/" + id + "/home"} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-arrow-right' style={{ fontSize: '17px' }}></i>Go to course</Link>
+                                                                                :
+                                                                                <Link className='float-right' to={"/enrollment/" + id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i>Enroll</Link>
+                                                                            // .map((item2) => (
+                                                                            //     <Link className='float-right' to={"/enrollment/" + id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-arrow-right' style={{ fontSize: '17px' }}></i>Go to course</Link>
+                                                                            // ))
+                                                                            :
+                                                                            <Link className='float-right' to={"/enrollment/" + id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i>Enroll</Link>
+                                                                    }
+                                                                    {/* <Link className='float-right' to={"/enrollment/" + item._id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i> &nbsp; Enroll Now</Link> */}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        ))
+                                            ))
                                     }
                                 </Slider>
                             </section>

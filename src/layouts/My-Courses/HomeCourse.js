@@ -3,6 +3,7 @@ import jwtDecode from 'jwt-decode';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Topbar from '../../components/Edit-User/Topbar'
 import { getCoursesByID } from '../../services/api';
+import Loading from '../LoadingScreen/Loading';
 
 const HomeCourse = () => {
 
@@ -46,7 +47,7 @@ const HomeCourse = () => {
                             <tbody>
                                 {
                                     loading ?
-                                        <></>
+                                        <>Loading...</>
                                         :
                                         modules.length ?
                                             modules.map(item => (
