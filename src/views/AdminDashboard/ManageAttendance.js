@@ -29,7 +29,6 @@ const ManageAttendance = () => {
     const [loading, setLoading] = useState(false)
 
     const getStudentListForCourse = async () => {
-        setLoading(true)
         const studentList = await getStudentsAsPerCourse(id)
         setStudents(studentList.data)
     }
@@ -48,7 +47,6 @@ const ManageAttendance = () => {
         setPresent(list.data.data.Present_Student)
         setAbsent(list.data.data.Absent_Student)
         setTotalStudent(list.data.data.Total_Student)
-        setLoading(false)
     }
 
     const onCalenderChange = async (e) => {

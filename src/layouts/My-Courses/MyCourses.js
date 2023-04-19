@@ -123,7 +123,7 @@ function MyCourses() {
               <div className="container">
                 <div className='text-center'>
                   <span style={{ fontSize: '20px', color: '#000', fontWeight: 'bold' }}>Enroll in any from over 21 courses.</span> <br />
-                  <span style={{ fontSize: '16px', color: '#000' }}>When you enroll in a course, it will appear here. <Link>Browse now</Link>.</span>
+                  <span style={{ fontSize: '16px', color: '#000' }}>When you enroll in a course, it will appear here. <Link to="/all-courses" >Browse now</Link>.</span>
                 </div>
               </div>
         }

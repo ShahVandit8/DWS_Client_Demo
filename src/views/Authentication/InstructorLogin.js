@@ -105,7 +105,7 @@ const InstructorLogin = () => {
                                     </button>
 
                                     <div className='text-center mt-3'>
-                                        <span>or <strong><Link>Forget Password</Link></strong></span>
+                                        <span>or <strong><Link to="/forget-password">Forget Password</Link></strong></span>
                                     </div>
 
                                 </form>
