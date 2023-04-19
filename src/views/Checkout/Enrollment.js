@@ -7,7 +7,7 @@ import Loading from '../../layouts/LoadingScreen/Loading'
 const Enrollment = () => {
 
     useEffect(() => {
-        window.scroll(0,0)
+        window.scroll(0, 0)
         getCourseDetails();
     }, [])
 
@@ -48,7 +48,44 @@ const Enrollment = () => {
                                         <span>Course</span>
                                     </div>
                                     <hr className="my-1 border-0" />
-                                    <div className="row mt-3 m-0">
+
+                                    <div className="card" style={{ border: 'none', borderRadius: '0' }}>
+                                        <div className="card-body px-0">
+                                            <div className="row">
+                                                <div className="col-md-2 col-12">
+                                                    <img src={process.env.REACT_APP_SERVER_FILE + course.CoverImage} alt="" className="img-fluid" />
+                                                </div>
+                                                <div className="col-md-6 col-12 px-4">
+                                                    <Link to={"/course/" + course._id} className="row mb-0" style={{ fontSize: '20px', color: 'inherit' }}>
+                                                        <span className="pl-0" style={{ fontSize: '13px' }}>Course | {course.Category}</span>
+                                                        <div className="col-10 p-0">
+                                                            <span className="" style={{ fontSize: '28px', fontWeight: 'bold' }}>{course.Name}</span>
+                                                        </div>
+                                                        <div className="p-0 mt-n2">
+                                                            <span style={{ fontSize: '12px' }}>{module.length} sections • {course.Duration}</span>
+                                                        </div>
+                                                        <div className="p-0 mb-2">
+                                                            {/* {
+                                                                item.Status == "Active" ?
+                                                                    <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>{item.Status}</span>
+                                                                    :
+                                                                    <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>Unknown</span>
+                                                            } */}
+                                                        </div>
+
+                                                    </Link>
+
+                                                </div>
+                                                <div className="col-md-4 float-right col-12  my-auto d-inline align-items-center">
+                                                    <div className="text-md-right">
+                                                        <span className='text-right' style={{ borderRadius: '0', fontWeight: 'bold', color: '#A335EF', fontSize: '20px' }}>₹{course.SellingPrice}<i className='bi bi-tag-fill'></i> </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <div className="row mt-3 m-0">
                                         <Link className="col-md-2 col-12 p-0 ">
                                             <img src={image} alt="" style={{ height: '4.5rem' }} />
                                         </Link>
@@ -78,7 +115,9 @@ const Enrollment = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
+
+                                    
                                 </div>
 
                                 <div className="col-md-4 mx-0 pl-md-5 pr-md-5 mt-md-0 mt-3 d-flex">

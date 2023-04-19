@@ -1,8 +1,13 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import { Outlet } from 'react-router-dom';
 import CourseSidebar from '../../components/CourseHome/CourseSidebar';
 
 const CourseHome = () => {
+
+    useEffect(() => {
+        window.scroll(0,0)
+    }, [])
+    
     return (
         <section id="edit-user" className="edit-user">
 

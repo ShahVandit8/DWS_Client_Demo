@@ -5,10 +5,12 @@ import PageHeading from '../../components/PageHeadings/PageHeading'
 import { Link } from 'react-router-dom';
 import { getCourses } from '../../services/api';
 import Star from '../../components/Rating-Star/Star';
+import moment from 'moment';
 
 function MyCourses() {
 
   useEffect(() => {
+    window.scroll(0, 0)
     setLoading(true)
     const token = sessionStorage.getItem('UserToken')
     if (token) {
@@ -68,51 +70,43 @@ function MyCourses() {
                     {
                       courselist.map(item => (
                         courses.filter((item2) => item2._id == item.Course_id).map(item3 => (
-                          <div className="row mt-3 m-0 pb-4 border-bottom">
-                            <Link className="col-md-3 col-12 p-0 ">
-                              <img src={process.env.REACT_APP_SERVER_FILE + item3.CoverImage} alt="" style={{ height: '11rem' }} />
-                            </Link>
-                            <div className="col-md-6 col-12">
-                              <Link to={"/course/" + item3._id} className="row" style={{ fontSize: '20px', color: 'inherit' }}>
-                                <span className="pl-0" style={{ fontSize: '13px' }}>Course | {item3.Category}</span>
-                                <div className="col-10 p-0">
-                                  <span className="" style={{ fontSize: '34px', fontWeight: 'bold' }}>{item3.Name}</span>
-                                </div>
-                              </Link>
-                              <div className="row mt-2">
-                                <div className="col-1 p-0 mr-2" style={{ width: 'fit-content' }}>
-                                  <span style={{ fontWeight: 'bold', color: '#F8B648' }}>{item3.Rating}</span>
-                                </div>
-                                <div className="col-8 p-0 mr-2" style={{ width: 'fit-content' }}>
-                                  <Star rating={item3.Rating} size="18px" />
-                                </div>
-                                <div className="col-1 p-0 mr-2" style={{ width: 'fit-content' }}>
-                                  <span style={{ fontSize: '13px' }}>({item3.RatingOutOf} reviews)</span>
-                                </div>
-                              </div>
-                              <div className="row mt-2">
-                                <div className="col-12 p-0" style={{ fontSize: '16px' }}>
-                                  <span>{item3.Modules.length} sections • {item3.Duration}</span>
-                                </div>
-                              </div>
-                              <div className="row mt-2">
-                                <div className="col-12 p-0">
-                                  {
-                                    item.Status == "Active" ?
-                                      <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>{item.Status}</span>
-                                      :
-                                      <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>Unknown</span>
-                                  }
+                          <>
+                            <div className="card border-bottom" style={{ border: 'none', borderRadius: '0' }}>
+                              <div className="card-body px-0">
+                                <div className="row">
+                                  <div className="col-md-2 col-12">
+                                    <img src={process.env.REACT_APP_SERVER_FILE + item3.CoverImage} alt="" className="img-fluid" />
+                                  </div>
+                                  <div className="col-md-6 col-12 px-4">
+                                    <Link to={"/course/" + item3._id} className="row mb-0" style={{ fontSize: '20px', color: 'inherit' }}>
+                                      <span className="pl-0" style={{ fontSize: '13px' }}>Course | {item3.Category}</span>
+                                      <div className="col-10 p-0">
+                                        <span className="" style={{ fontSize: '28px', fontWeight: 'bold' }}>{item3.Name}</span>
+                                      </div>
+                                      <div className="p-0 mt-n2">
+                                        <span style={{ fontSize: '12px' }}>Enrollment Date : {moment(item.Enrollment_date).format('DD-MM-yyyy')}</span>
+                                      </div>
+                                      <div className="p-0 mb-2">
+                                        {
+                                          item.Status == "Active" ?
+                                            <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>{item.Status}</span>
+                                            :
+                                            <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>Unknown</span>
+                                        }
+                                      </div>
 
+                                    </Link>
+
+                                  </div>
+                                  <div className="col-md-3 col-12 d-md-flex d-inline align-items-center">
+                                    <div className="mx-auto">
+                                      <Link to={'/my-courses/enrolled/' + item.Course_id + '/home'} className='btn btn-dark' style={{ borderRadius: '0' }}>Go to Course &rarr;</Link>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                            <div className="col-md-3 col-12 d-md-flex d-inline py-3 px-0 align-items-center">
-                              <div className="mx-auto">
-                                <Link to={'/my-courses/enrolled/'+ item.Course_id + '/home'} className='btn btn-dark' style={{borderRadius: '0'}}>Go to Course &rarr;</Link>
-                              </div>
-                            </div>
-                          </div>
+                          </>
                         ))
                       ))
                     }

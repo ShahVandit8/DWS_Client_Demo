@@ -187,7 +187,7 @@ const Checkout = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="card mt-3" style={{ borderRadius: '0' }}>
+                                                <div className="card mt-3 mb-3" style={{ borderRadius: '0' }}>
                                                     <div className="card-header row m-0 py-2 bg-dark text-white" style={{ borderRadius: '0' }}>
                                                         <div className="col-12 p-0">
                                                             <span className="align-middle">Enrollment Details</span>
