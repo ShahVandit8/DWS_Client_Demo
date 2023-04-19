@@ -14,7 +14,7 @@ export const registerUser = async (data) => {
 
 export const loginUser = async (data) => {
     try {
-        return await axios.post(`${ServerURL}/login` ,data, { withCredentials: true})
+        return await axios.post(`${ServerURL}/login` ,data)
 
     }
     catch (err) {
@@ -104,7 +104,7 @@ export const getAllStudentsAsPerCourse = async (id) => {
 
 export const loginAdmin = async (data) => {
     try {
-        return await axios.post(`${ServerURL}/login-admin` ,data, { withCredentials: true})
+        return await axios.post(`${ServerURL}/login-admin` ,data)
 
     }
     catch (err) {
@@ -249,7 +249,7 @@ export const registerInstructor = async (data) => {
 
 export const loginInstructor = async (data) => {
     try {
-        return await axios.post(`${ServerURL}/login-instructor` ,data, { withCredentials: true})
+        return await axios.post(`${ServerURL}/login-instructor` ,data)
 
     }
     catch (err) {
