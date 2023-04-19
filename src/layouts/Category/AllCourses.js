@@ -1,0 +1,120 @@
+import { React, useEffect, useState } from 'react'
+import { getActiveCourses, getITCourses } from '../../services/api'
+
+import PageHeading from '../../components/PageHeadings/PageHeading'
+import CourseGrid from '../../components/Cards/Courses/CourseGrid'
+
+const AllCourses = () => {
+
+    useEffect(() => {
+        getallCoursesList();
+    }, [])
+
+    const [courses, setCourses] = useState([])
+    const [search, setSearch] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const getallCoursesList = async () => {
+        setLoading(true)
+        const courselist = await getActiveCourses()
+        setCourses(courselist.data)
+        setLoading(false)
+    }
+
+    return (
+        <div>
+            <PageHeading Title="All Courses" Description={"More than " + courses.length + "+ courses are available"} />
+            <section className="container px-3">
+
+                <div>
+                    <div className='col-md-5 col-12 mx-auto'>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search course"
+                                style={{ borderRadius: '0' }}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="button" style={{ borderRadius: '0' }}>
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div className='row mt-4 justify-content-center features'>
+                    {
+                        loading ?
+                            <>
+                                <div className="col-sm-6 col-md-3">
+                                    <div className="movie--isloading">
+                                        <div className="loading-image" />
+                                        <div className="loading-content">
+                                            <div className="loading-text-container">
+                                                <div className="loading-main-text" />
+                                                <div className="loading-sub-text" />
+                                            </div>
+                                            <div className="loading-btn" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 col-md-3">
+                                    <div className="movie--isloading">
+                                        <div className="loading-image" />
+                                        <div className="loading-content">
+                                            <div className="loading-text-container">
+                                                <div className="loading-main-text" />
+                                                <div className="loading-sub-text" />
+                                            </div>
+                                            <div className="loading-btn" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 col-md-3">
+                                    <div className="movie--isloading">
+                                        <div className="loading-image" />
+                                        <div className="loading-content">
+                                            <div className="loading-text-container">
+                                                <div className="loading-main-text" />
+                                                <div className="loading-sub-text" />
+                                            </div>
+                                            <div className="loading-btn" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 col-md-3">
+                                    <div className="movie--isloading">
+                                        <div className="loading-image" />
+                                        <div className="loading-content">
+                                            <div className="loading-text-container">
+                                                <div className="loading-main-text" />
+                                                <div className="loading-sub-text" />
+                                            </div>
+                                            <div className="loading-btn" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            courses.length ?
+                                courses.filter(value => {
+                                    if (search === '') {
+                                        return value
+                                    }
+                                    else if (value.Name.toLowerCase().includes(search.toLowerCase())) {
+                                        return value
+                                    }
+                                }).map((item) => (
+                                    <CourseGrid id={item._id} Title={item.Name} CoverPicture={process.env.REACT_APP_SERVER_FILE + item.CoverImage} Section={item.Modules.length} Duration={item.Duration} Rating={item.Rating} RatingOutOf={item.RatingOutOf} Price={item.SellingPrice} Level={item.Level} />
+                                ))
+                                :
+                                <span>Sorry something went wrong</span>
+                    }
+                </div>
+            </section>
+        </div>
+    )
+}
+
+export default AllCourses
