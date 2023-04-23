@@ -80,9 +80,12 @@ import AboutUs from './views/Homepages/Pages/AboutUs';
 import Messages from './views/AdminDashboard/Messages';
 import ViewMessage from './views/AdminDashboard/ViewMessage';
 import ForgetPassword from './views/Authentication/ForgetPassword';
+import FChangePassword from './views/Authentication/ChangePassword';
 import Error from './views/Error/Error';
 import Contactus from './views/Homepages/Pages/Contactus';
 import Features from './views/Homepages/Pages/Features';
+import ForgetPasswordINS from './views/Authentication/ForgetPasswordINS';
+import ChangePasswordINS from './views/Authentication/ChangePasswordINS';
 
 function App() {
 
@@ -127,6 +130,9 @@ function App() {
         <Route path="/features" element={<><Navbar2 login={login} setlogin={setlogin} /><Features /><Footer /></>} />
         <Route path="/file-preview/:id" element={<><FilePreview /></>} />
         <Route path="/forget-password" element={<><ForgetPassword /></>} />
+        <Route path="/forget-password/instructor" element={<><ForgetPasswordINS /></>} />
+        <Route path="/change-password/:time/:id" element={<><FChangePassword /></>} />
+        <Route path="/change-password/instructor/:time/:id" element={<><ChangePasswordINS /></>} />
         <Route path="/enrollment-success/:id" element={<><SuccessEnrollment /></>} />
         <Route path="*" element={<><Error /></>} />
 

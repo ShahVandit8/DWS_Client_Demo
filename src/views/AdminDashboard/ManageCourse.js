@@ -538,7 +538,7 @@ const ManageCourse = () => {
                                 <div className="modal-content">
                                     <div className="modal-header">
                                         <h5 className="modal-title" id="exampleModalLabel">
-                                            Add Module
+                                            Change Instructor
                                         </h5>
                                         <button
                                             type="button"

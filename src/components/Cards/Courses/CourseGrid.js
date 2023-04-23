@@ -75,7 +75,7 @@ function CourseGrid(props) {
                         <div className='col-6 pr-3'>
                             {
                                 courses.length ?
-                                    courses.filter((item) => item.Course_id === id).length ?
+                                    courses.filter((item) => item.Course_id === id && item.Status == "Active").length ?
                                         <Link className='float-right' to={"/my-courses/enrolled/" + id + "/home"} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-arrow-right' style={{ fontSize: '17px' }}></i>Go to course</Link>
                                         :
                                         <Link className='float-right' to={"/enrollment/" + id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i>Enroll</Link>

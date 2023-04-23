@@ -65,7 +65,7 @@ const Attendance = () => {
                                     attendancedata.filter(item => item.Student_id == userid).map(item2 => (
                                         item2.Data == 'Present' ?
                                             <div className="row p-0  m-0 mt-3" style={{ backgroundColor: '#EBF5F0', borderRadius: '0' }}>
-                                                <div className="col-1 text-center">
+                                                <div className="col-md-1 col-2 text-center">
                                                     <span style={{ fontSize: '35px', color: '#38A169' }} className="bi bi-check-circle-fill"></span>
                                                 </div>
                                                 <div className="col-9 d-flex align-items-center">
@@ -75,7 +75,7 @@ const Attendance = () => {
                                             :
                                             item2.Data = 'Absent' ?
                                                 <div className="row p-0  m-0 mt-3" style={{ backgroundColor: '#FBE9E9', borderRadius: '0' }}>
-                                                    <div className="col-1 text-center">
+                                                    <div className="col-md-1 col-2 text-center">
                                                         <span style={{ fontSize: '35px', color: '#DC2626' }} className="bi bi-x-circle-fill"></span>
                                                     </div>
                                                     <div className="col-9 d-flex align-items-center">
@@ -84,7 +84,7 @@ const Attendance = () => {
                                                 </div>
                                                 :
                                                 <div className="row p-0  m-0 mt-3" style={{ backgroundColor: 'rgba(255, 193, 7, 0.2)', borderRadius: '0' }}>
-                                                    <div className="col-1 text-center">
+                                                    <div className="col-md-1 col-2 text-center">
                                                         <span style={{ fontSize: '35px', color: '#FFC107' }} className="bi bi-exclamation-circle-fill"></span>
                                                     </div>
                                                     <div className="col-9 d-flex align-items-center">

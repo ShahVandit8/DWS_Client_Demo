@@ -397,7 +397,7 @@ function Dashboard() {
                                             </div>
 
                                         </div>
-                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '320px' }}>
+                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '350px' }}>
                                             <table className="table">
                                                 <tbody>
                                                     {
@@ -529,7 +529,7 @@ function Dashboard() {
                                             </div>
 
                                         </div>
-                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '320px' }}>
+                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '350px' }}>
                                             <table className="table">
                                                 <tbody>
                                                     {
@@ -587,7 +587,7 @@ function Dashboard() {
                                             </div>
 
                                         </div>
-                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '320px' }}>
+                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '350px' }}>
                                             <table className="table ">
                                                 <tbody>
                                                     {

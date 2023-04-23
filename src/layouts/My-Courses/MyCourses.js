@@ -91,7 +91,13 @@ function MyCourses() {
                                           item.Status == "Active" ?
                                             <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>{item.Status}</span>
                                             :
-                                            <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>Unknown</span>
+                                            item.Status == "Passed Out" ?
+                                              <span className="badge" style={{ fontSize: '13px', backgroundColor: 'rgba(117, 79, 254, 0.1)', color: '#754FFE', borderRadius: '0' }}>{item.Status}</span>
+                                              :
+                                              item.Status == "Terminated" ?
+                                                <span className="badge" style={{ fontSize: '13px', backgroundColor: '#FBE9E9', color: '#DC2626', borderRadius: '0' }}>{item.Status}</span>
+                                                :
+                                                <span className="badge" style={{ fontSize: '13px', backgroundColor: '#EBF5F0', color: '#38A169', borderRadius: '0' }}>{item.Status}</span>
                                         }
                                       </div>
 
@@ -100,7 +106,12 @@ function MyCourses() {
                                   </div>
                                   <div className="col-md-3 col-12 d-md-flex d-inline align-items-center">
                                     <div className="mx-auto">
-                                      <Link to={'/my-courses/enrolled/' + item.Course_id + '/home'} className='btn btn-dark' style={{ borderRadius: '0' }}>Go to Course &rarr;</Link>
+                                      {
+                                        item.Status == "Terminated" ?
+                                          <><span className="text-dark">Sorry your enrollment is Terminated</span></>
+                                          :
+                                          <Link to={'/my-courses/enrolled/' + item.Course_id + '/home'} className='btn btn-dark' style={{ borderRadius: '0' }}>Go to Course &rarr;</Link>
+                                      }
                                     </div>
                                   </div>
                                 </div>

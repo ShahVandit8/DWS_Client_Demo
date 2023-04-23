@@ -1,11 +1,11 @@
 import { React, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { pwdforgot } from '../../services/api';
+import { pwdforgotINS } from '../../services/api';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ForgetPassword = () => {
+const ForgetPasswordINS = () => {
 
     const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const ForgetPassword = () => {
             toast.warning('Please enter your email')
         }
         else {
-            const result = await pwdforgot(user.Email);
+            const result = await pwdforgotINS(user.Email);
             if (result) {
                 toast('✅ Password is send to your email')
                 window.setTimeout(gotoLogin, 5000)
@@ -34,17 +34,17 @@ const ForgetPassword = () => {
     }
 
     const gotoLogin = () => {
-        navigate('/authentication/sign-in')
+        navigate('/authentication/sign-in/instructor')
     }
 
-    return (
-        <section id="login" className="login">
+  return (
+     <section id="login" className="login">
             <div className="mt-2">
                 <div className="col-12 col-xl-3 col-md-6 card mx-auto">
                     <form id="form" className="card-body"
                         onSubmit={recoverPassword}
                     >
-                        <p style={{ fontSize: '30px' }}>Forget Password</p>
+                        <p style={{ fontSize: '30px' }}>Forget Password (Instructor)</p>
                         <p className="mt-4 mb-n1">Enter your Email</p>
 
                         <input type="text" name="Email" className="form-control" onChange={(e) => setUser({ Email: e.target.value })} placeholder="Email" />
@@ -60,7 +60,7 @@ const ForgetPassword = () => {
                         <hr />
 
                         <div className='text-center mt-3'>
-                            <span>Go back to <strong><Link to="/authentication/sign-in">Sign in</Link></strong></span>
+                            <span>Go back to <strong><Link to="/authentication/sign-in/instructor">Sign in</Link></strong></span>
                         </div>
                     </form>
                 </div>
@@ -76,7 +76,7 @@ const ForgetPassword = () => {
                 theme="dark"
             />
         </section>
-    )
+  )
 }
 
-export default ForgetPassword
+export default ForgetPasswordINS

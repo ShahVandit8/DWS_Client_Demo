@@ -127,17 +127,17 @@ const UserProfile = () => {
                                                             <input className="form-control" style={{ backgroundColor: 'white', borderRadius: '0' }} id="inputDOB" type="date" value={moment(user.DOB).format('yyyy-MM-DD')} readOnly />
                                                         </div>
                                                     </div>
-                                                    {/* Form Row        */}
+                                                    {/* Form Row */}
                                                     <div className="row gx-3 mb-3">
                                                         {/* Form Group (organization name)*/}
                                                         <div className="col-md-6">
                                                             <label className="small mb-1" htmlFor="inputContact">Contact No</label>
-                                                            <input className="form-control" style={{ backgroundColor: 'white', borderRadius: '0' }} id="inputContact" type="text" value={user.Contact} readOnly />
+                                                            <input className="form-control" style={{ backgroundColor: 'white', borderRadius: '0' }} id="inputContact" type="text" placeholder='Contact' defaultvalue={user.Contact} readOnly />
                                                         </div>
                                                         {/* Form Group (location)*/}
                                                         <div className="col-md-6">
                                                             <label className="small mb-1" htmlFor="inputGender">Gender</label>
-                                                            <select name="Gender" id="inputGender" className="form-control" style={{ backgroundColor: 'white', borderRadius: '0' }} value={user.Gender} required readOnly>
+                                                            <select name="Gender" id="inputGender" className="form-control" style={{ backgroundColor: 'white', borderRadius: '0' }} defaultvalue={user.Gender} required readOnly>
                                                                 <option value="select" selected>Select Gender</option>
                                                                 <option value="Male">Male</option>
                                                                 <option value="Female">Female</option>
@@ -157,7 +157,7 @@ const UserProfile = () => {
                                                             placeholder="Address"
                                                             rows='5'
                                                             required
-                                                            value={user.Address}
+                                                            defaultvalue={user.Address}
                                                             readOnly
                                                         // onChange={(e) => onValueChange(e)}
                                                         />

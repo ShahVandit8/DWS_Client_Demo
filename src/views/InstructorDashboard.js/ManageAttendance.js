@@ -119,9 +119,7 @@ const ManageAttendance = () => {
                                         <div className="col-11">
                                             <h6 className="text-center">Attendance Data of <strong>{course.Name}</strong> on <strong>{moment(value).format('LL')}</strong></h6>
                                         </div>
-                                        <div className="col-1">
-                                            <Link to={'/dashboard/instructor/attendance/edit/' + course._id} className="fa fa-edit"></Link>
-                                        </div>
+                                    
                                     </div>
                                     <table className="table table-striped">
                                         <thead>

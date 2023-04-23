@@ -132,7 +132,7 @@ const ChangePassword = () => {
 
                                                     <div className="mt-3">
                                                         <h4>{instructor.Name}</h4>
-                                                        <p className="text-secondary mb-1">Admin</p>
+                                                        <p className="text-secondary mb-1">Instructor</p>
                                                     </div>
                                                 </div>
 

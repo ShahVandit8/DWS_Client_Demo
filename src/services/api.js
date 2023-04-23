@@ -654,3 +654,32 @@ export const pwdforgot = async (id) => {
         console.log("Error occured while calling pwdforgot api", err);
     }
 }
+
+export const changeUserPassword = async (id, data) => {
+    try {
+        return await axios.post(`${ServerURL}/changePassword/${id}` ,data)
+
+    }
+    catch (err) {
+        console.log("Error occured while calling changeUserPassword api", err);
+    }
+}
+
+export const pwdforgotINS = async (id) => {
+    try {
+        return await axios.get(`${ServerURL}/forget-password-instructor/${id}`)
+    }
+    catch (err) {
+        console.log("Error occured while calling pwdforgotINS api", err);
+    }
+}
+
+export const changeINSPassword = async (id, data) => {
+    try {
+        return await axios.post(`${ServerURL}/changePasswordINS/${id}` ,data)
+
+    }
+    catch (err) {
+        console.log("Error occured while calling changeINSPassword api", err);
+    }
+}

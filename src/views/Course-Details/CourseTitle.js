@@ -26,7 +26,7 @@ function CourseTitle(props) {
                                 {ShortDescription}
                                 {/* JavaScript is the popular programming language which powers web pages and web applications. This course will get you started coding in JavaScript. */}
                             </p>
-                                    <div className="mt-4" data-aos="fade-up" data-aos-delay={600}>
+                                    <div className="mt-4 mx-auto" data-aos="fade-up" data-aos-delay={600}>
                                         <div className='d-flex flex-row'>
                                             <div className='mr-4 d-none d-md-flex'>
                                                 <h6><span className='bi bi-person'>&nbsp;  {StudentCount} Enrolled</span></h6>

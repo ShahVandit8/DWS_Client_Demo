@@ -204,15 +204,15 @@ const Recommendation = ({ Category, id }) => {
                                                                 <div className='col-7'>
                                                                     {
                                                                         course.length ?
-                                                                            course.filter((item5) => item5.Course_id === item._id).length ?
-                                                                                <Link className='float-right' to={"/my-courses/enrolled/" + id + "/home"} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-arrow-right' style={{ fontSize: '17px' }}></i>Go to course</Link>
+                                                                            course.filter((item5) => item5.Course_id === item._id && item5.Status != 'Terminated').length ?
+                                                                                <Link className='float-right' to={"/my-courses/enrolled/" + item._id + "/home"} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-arrow-right' style={{ fontSize: '17px' }}></i>Go to course</Link>
                                                                                 :
-                                                                                <Link className='float-right' to={"/enrollment/" + id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i>Enroll</Link>
+                                                                                <Link className='float-right' to={"/enrollment/" + item._id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i>Enroll</Link>
                                                                             // .map((item2) => (
                                                                             //     <Link className='float-right' to={"/enrollment/" + id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-arrow-right' style={{ fontSize: '17px' }}></i>Go to course</Link>
                                                                             // ))
                                                                             :
-                                                                            <Link className='float-right' to={"/enrollment/" + id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i>Enroll</Link>
+                                                                            <Link className='float-right' to={"/enrollment/" + item._id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i>Enroll</Link>
                                                                     }
                                                                     {/* <Link className='float-right' to={"/enrollment/" + item._id} style={{ fontSize: '15px', textDecoration: 'none', color: 'inherit' }}><i className='bi bi-cart' style={{ fontSize: '17px' }}></i> &nbsp; Enroll Now</Link> */}
                                                                 </div>

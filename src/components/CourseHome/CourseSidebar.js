@@ -27,6 +27,10 @@ const CourseSidebar = () => {
                         // console.log("Not match")
                         window.location.replace('/')
                     }
+                    else if(courseexisit[0].Status == 'Terminated') {
+                        alert('Sorry your Enrollment is Terminated')
+                        window.location.replace('/')
+                    }
                 }
 
             }

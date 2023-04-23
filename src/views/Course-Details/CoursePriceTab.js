@@ -20,7 +20,7 @@ function CoursePriceTab(props) {
                 setCourseList(userdets.Courses)
 
                 const list = userdets.Courses.filter((item) => item.Course_id == id)
-                if (list.length > 0) {
+                if (list.length > 0 && list[0].Status != "Terminated") {
                     setUserEnrolled(true)
                 }
             }
