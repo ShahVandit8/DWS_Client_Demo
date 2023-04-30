@@ -84,7 +84,7 @@ function Signup({ login, setlogin }) {
     return (
         <section id="login" className="signup">
             <div className="">
-                <div className="col-12 col-md-3 card mx-auto">
+                <div className="col-12 col-xl-3 col-md-6 card mx-auto">
                     <form className="card-body" onSubmit={UserRegister}>
                         <p>Sign up and start learning</p>
 

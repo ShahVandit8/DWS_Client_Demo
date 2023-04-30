@@ -167,7 +167,7 @@ const InstructorProfile = () => {
                                                                                     </a>
                                                                                 </td>
                                                                                 <td colSpan="2" className='align-middle'>
-                                                                                    <a href={`/dashboard/admin/courses/manage/` + (item.id)} className="col-4 btn btn-dark float-right" style={{ borderRadius: '0', width: 'fit-content' }}>Manage</a>
+                                                                                    <a href={`/dashboard/admin/courses/manage/` + (item.id)} className="col-12 col-xl-6 btn btn-dark float-right" style={{ borderRadius: '0', width: 'fit-content' }}>Manage</a>
                                                                                 </td>
                                                                             </tr>
                                                                         ))

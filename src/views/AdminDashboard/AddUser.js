@@ -65,7 +65,7 @@ const AddUser = () => {
             </div>
             <section className="signup">
                 <div className="">
-                    <div className="col-12 col-md-3 card mx-auto">
+                    <div className="col-12 col-md-6 col-xl-5 card mx-auto">
                         <form className="card-body"
                             onSubmit={UserRegister}
                         >

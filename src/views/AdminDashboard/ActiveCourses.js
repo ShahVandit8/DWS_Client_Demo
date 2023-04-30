@@ -61,7 +61,7 @@ const ActiveCourses = () => {
                     :
                     <>
                         <div className='row' >
-                            <div className='col-4'>
+                            <div className='col-xl-4 col-3'>
                                 <h1 className="h4 mb-4"> Active Courses</h1>
                             </div>
                             <div className='col-5'>
@@ -78,7 +78,7 @@ const ActiveCourses = () => {
 
                                 </div>
                             </div>
-                            <div className='col-3 text-right pr-5'>
+                            <div className='col-xl-3 col-4 text-right pr-5'>
                                 <Link to="/dashboard/admin/courses/create" className="btn btn-dark" style={{ borderRadius: '0' }}>Add New Course +</Link>
                             </div>
                         </div>

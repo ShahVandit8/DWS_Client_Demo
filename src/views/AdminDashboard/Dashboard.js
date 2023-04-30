@@ -386,7 +386,7 @@ function Dashboard() {
                             <div className="row p-2">
 
                                 {/* Recent Order List */}
-                                <div className="col-md-4 col-12 mt-2">
+                                <div className="col-xl-4 col-12 mt-2">
                                     <div className="card shadow" style={{ border: '0' }}>
                                         <div className="card-header row m-0 py-3 bg-white" style={{}}>
                                             <div className="col-12 col-md-8 p-0">
@@ -397,7 +397,7 @@ function Dashboard() {
                                             </div>
 
                                         </div>
-                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '350px' }}>
+                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', maxHeight: '350px' }}>
                                             <table className="table">
                                                 <tbody>
                                                     {
@@ -518,7 +518,7 @@ function Dashboard() {
 
 
                                 {/*Notification List */}
-                                <div className="col-md-4 col-12 mt-2">
+                                <div className="col-xl-4 col-12 mt-2">
                                     <div className="card shadow" style={{ border: '0' }}>
                                         <div className="card-header row m-0 py-3 bg-white" style={{}}>
                                             <div className="col-12 col-md-8 p-0">
@@ -529,7 +529,7 @@ function Dashboard() {
                                             </div>
 
                                         </div>
-                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '350px' }}>
+                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', maxHeight: '350px' }}>
                                             <table className="table">
                                                 <tbody>
                                                     {
@@ -576,7 +576,7 @@ function Dashboard() {
                                 </div>
 
                                 {/*Notification List */}
-                                <div className="col-md-4 col-12 mt-2">
+                                <div className="col-xl-4 col-12 mt-2">
                                     <div className="card shadow" style={{ border: '0' }}>
                                         <div className="card-header row m-0 py-3 bg-white" style={{}}>
                                             <div className="col-12 col-md-8 p-0">
@@ -587,7 +587,7 @@ function Dashboard() {
                                             </div>
 
                                         </div>
-                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', height: '350px' }}>
+                                        <div className="card-body p-0" style={{ "overflow-y": 'hidden', maxHeight: '350px' }}>
                                             <table className="table ">
                                                 <tbody>
                                                     {

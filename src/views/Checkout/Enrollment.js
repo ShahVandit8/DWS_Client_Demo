@@ -52,10 +52,10 @@ const Enrollment = () => {
                                     <div className="card" style={{ border: 'none', borderRadius: '0' }}>
                                         <div className="card-body px-0">
                                             <div className="row">
-                                                <div className="col-md-2 col-12">
+                                                <div className="col-md-3 col-12">
                                                     <img src={process.env.REACT_APP_SERVER_FILE + course.CoverImage} alt="" className="img-fluid" />
                                                 </div>
-                                                <div className="col-md-6 col-12 px-4">
+                                                <div className="col-md-5 col-12 px-4">
                                                     <Link to={"/course/" + course._id} className="row mb-0" style={{ fontSize: '20px', color: 'inherit' }}>
                                                         <span className="pl-0" style={{ fontSize: '13px' }}>Course | {course.Category}</span>
                                                         <div className="col-10 p-0">

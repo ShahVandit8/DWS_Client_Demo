@@ -195,15 +195,15 @@ const Checkout = () => {
                                                     </div>
                                                     <div className="card-body">
                                                         <div className="row m-0">
-                                                            <Link className="col-md-2 col-12 p-0 ">
-                                                                <img src={image} alt="" style={{ height: '4.5rem' }} />
+                                                            <Link className="col-md-2 col-12 p-0">
+                                                                <img src={image} alt="" className='img-fluid' />
                                                             </Link>
-                                                            <div className="col-md-10 col-12">
+                                                            <div className="col-md-10 col-12 pl-4">
                                                                 <Link to={"/course/" + course._id} className="row" style={{ fontSize: '20px', color: 'inherit' }}>
-                                                                    <div className="col-md-10 col-6 p-0">
+                                                                    <div className="col-md-9 col-6 p-0">
                                                                         <span className="" style={{ fontWeight: 'bold' }}>{course.Name}</span>
                                                                     </div>
-                                                                    <div className="col-md-2 col-6 p-0">
+                                                                    <div className="col-md-3 col-6 p-0">
                                                                         <span className='float-right' style={{ fontWeight: 'bold', color: '#A335EF' }}>₹{course.SellingPrice} <i className='bi bi-tag-fill'></i></span>
                                                                     </div>
                                                                 </Link>
